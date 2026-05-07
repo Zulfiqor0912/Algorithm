@@ -4,8 +4,9 @@
     {
         var son = int.Parse(Console.ReadLine());
         //var b = int.Parse(Console.ReadLine());
-        var c = int.Parse(Console.ReadLine());
-        
+        //var c = int.Parse(Console.ReadLine());
+        //var a = int.Parse(Console.ReadLine());
+
 
         Program p = new Program();
         //Console.WriteLine(p.Task1(son));
@@ -25,7 +26,14 @@
         //p.Team(son, b);
         //p.Abs(son);
         //p.Triangle(son, b, c);
-        
+        //p.If14(son, b, c);
+        //p.If15(son, b, c);
+        //p.If19(son, b, c, a);
+        //p.E4(son);
+        //p.E7(son, b);
+        //Console.WriteLine(p.E9());
+        Console.WriteLine(p.E10(son));
+
     }
     public int Task1(int a) => a * 5;
     public int Task2(int a) => (int)Math.Pow(a, 2);
@@ -106,7 +114,7 @@
             case >= 20 and <= 40: Console.WriteLine("2"); break;
                 default : Console.WriteLine("Bahosiz"); break ;
         }
-    }  //with gpt
+    }  //with gpt(syntaxis)
     public float Symbol(float a, string symbol, float b)
     {
 
@@ -184,6 +192,156 @@
             b = 0;
         }
         Console.WriteLine(a + "" + b);
+    }
+    public void If11(int a, int b)
+    {
+        if (a > b) b = a;
+        else if(b>a) a= b;
+        else a = b = 0;
+        Console.WriteLine(a + " " + b);
+    }
+    public void If12(int a, int b, int c)
+    {
+        if (a - b >= 0) Console.WriteLine(b >= c ? c : b);
+        else Console.WriteLine(a >= c ? c : a);
+    }
+    public void If13(int a, int b, int c)
+    {
+        if (a>=b && a<=c) Console.WriteLine(a);
+        else if (b >= a && b <= c) Console.WriteLine(b);
+        else if (c >= a && c <= b) Console.WriteLine(c);
+        else Console.WriteLine("Bunday son yo'q");
+    }
+    public void If14(int a, int b, int c)
+    {
+        if (a >= b) Console.WriteLine(b >= c ? c : b + " " + (a >= c ? a : c));
+        else Console.WriteLine(a >= c ? c : a + " " + (b >= c ? b : c));
+    }
+    public void If15(int a, int b, int c)
+    {
+        if (a >= b) Console.WriteLine(b >= c ? (a + b) : (a + c));
+        else Console.WriteLine(a >= c ? (a + b) : (b + c));
+    }
+    public void If16(int a, int b, int c)
+    {
+        if (a > b && b > c)
+        {
+            a *= 2; b *= 2; c *= 2;
+        }
+        else { a*=-1; b*=-1; c*=-1; }
+        Console.WriteLine(a + " " + b + " " + c);
+    }
+    public void If17(int a, int b, int c)
+    {
+        if (a > b && b > c)
+        {
+            a *= 2; b *= 2; c *= 2;
+        }
+        else if (a < b && b < c)
+        {
+            a *= 2; b *= 2; c *= 2;
+        }
+        else { a *= -1; b *= -1; c *= -1; }
+        Console.WriteLine(a + " " + b + " " + c);
+    }
+    public void If18(int a, int b, int c)
+    {
+        if (a==b) Console.WriteLine(3);
+        else if (a==c) Console.WriteLine(2);
+        else if (b==c) Console.WriteLine(1);
+        else Console.WriteLine(0);
+    }
+    public void If19(int a, int b, int c, int d)
+    {
+        if (a == b) Console.WriteLine(a == c ? d : c);
+        else if (a == c) Console.WriteLine(a == d ? b : d);
+        else if (a == b && c == d) Console.WriteLine("Barchasi o'zaro teng");
+        else Console.WriteLine(a);
+    }
+    public void D1(int a)
+    {
+        switch (a)
+        {
+            case > 0 and < 6: Console.WriteLine("Ish kuni"); break;
+            case 6 or 7: Console.WriteLine("Dam olish kuni"); break;
+            default: Console.WriteLine("Bunday kun yo'q"); break;
+        }
+    }
+    public void D2(int a)
+    {
+        switch (a)
+        {
+            case > 0: Console.WriteLine("Natural son"); break;
+                default: Console.WriteLine("Natural son emas"); break;
+        }
+    }
+    public void D3(int a)
+    {
+        switch (a) 
+        {
+            case > 0 and < 10: Console.WriteLine("Bir xonali"); break;
+            case >= 10 and < 100: Console.WriteLine("Ikki xonali"); break;
+            case >= 100 and < 1000: Console.WriteLine("Uch xonali"); break;
+            case >=1000 and < 10000: Console.WriteLine("To'rt xonali"); break;
+            case >= 10000 and < 100000: Console.WriteLine("Besh xonali"); break;
+            default: Console.WriteLine("Juda katta son"); break;
+        }
+    }
+    public void E4(int a)
+    {
+        var b = a % 10;
+        while (a / 10 > 0)
+            a = a / 10;
+        Console.WriteLine(b > a ? b : a);
+
+    }
+    public void E5()
+    {
+        char x = 'a';
+        while (x < 'z') Console.WriteLine(x++);
+    }
+    public void E6(int a, int b)
+    {
+        for (int i = a - b; i <= a + b; i++) Console.WriteLine(i);
+    }
+    public void E7(int a, int b)
+    {
+        int s = 1;
+        int n = a;
+        while (s < b)
+        {
+            a *= n;
+            s++;
+        }
+        Console.WriteLine(a);
+    }
+    public int E9()
+    {
+        int sum = 0;
+        int a = 34;
+        while (a <= 88)
+        {
+            if (a % 7 == 0)
+            {
+                if (a%2 == 0)
+                    sum += a;
+                a += 7;
+            }
+            else
+                a++;
+        }
+        return sum;
+    }
+    public int E10(int n)
+    {
+        int sum = 0;
+        int a = n;
+        while (n > 0)
+        {
+            sum += n % 10;
+            n = n / 10;
+        }
+        return a % sum;
     }
 
 }
