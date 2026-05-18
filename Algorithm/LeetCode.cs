@@ -87,4 +87,27 @@ internal class LeetCode
         }
         return sum;
     }
+    public int MirrorDistance(int n)
+    {
+        var x = n;
+        var y = 0;
+        while (n > 0)
+        {
+            y = y * 10 + n % 10;
+            n /= 10;
+        }
+        return x > y ? x - y : y - x;
+    }
+    public int ScoreOfString(string s)
+    {
+        int score = 0;
+        if (s.Length == 1) return (int)s[0];
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (s[i] > s[i + 1] && i + 1 != s.Length) score += (s[i] - s[i + 1]);
+            else if(i + 1 != s.Length) score += (s[i + 1] - s[i]);
+            else return score;
+        }
+        return score;
+    }
 }
