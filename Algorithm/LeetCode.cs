@@ -87,4 +87,18 @@ internal class LeetCode
         }
         return sum;
     }
+
+    public string LongestCommonPrefix(string[] strs)
+    {
+        var str = strs[0];
+        List<string> strings;
+        for (int i = 1; i < strs.Length; i++)
+        {
+            if (str.Length > strs[i].Length)
+            {
+                str = strs[i];
+            }
+        }
+        return "";
+    }
 }
