@@ -105,9 +105,23 @@ internal class LeetCode
         for (int i = 0; i < s.Length; i++)
         {
             if (s[i] > s[i + 1] && i + 1 != s.Length) score += (s[i] - s[i + 1]);
-            else if(i + 1 != s.Length) score += (s[i + 1] - s[i]);
+            else if (i + 1 != s.Length) score += (s[i + 1] - s[i]);
             else return score;
         }
         return score;
+    }
+
+    public string LongestCommonPrefix(string[] strs)
+    {
+        var str = strs[0];
+        List<string> strings;
+        for (int i = 1; i < strs.Length; i++)
+        {
+            if (str.Length > strs[i].Length)
+            {
+                str = strs[i];
+            }
+        }
+        return "";
     }
 }
