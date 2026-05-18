@@ -1,4 +1,6 @@
-﻿namespace Algorithm;
+﻿using System.Text;
+
+namespace Algorithm;
 
 internal class LeetCode
 {
@@ -113,13 +115,37 @@ internal class LeetCode
 
     public string LongestCommonPrefix(string[] strs)
     {
-        var str = strs[0];
-        List<string> strings;
-        for (int i = 1; i < strs.Length; i++)
+        if (strs.Length == 1) return strs[0];
+        
+        var strOne = strs[0];
+
+        int a = 0;
+        for (int i = 0; i < strs.Length; i++)
         {
-            if (str.Length > strs[i].Length)
+            if (strOne.Length > strs[i].Length) strOne = strs[i];
+            if (strs[0] != strs[i]) a++;
+        }
+
+        if (a == 0) return strs[0];
+
+        int count = 0;
+        var strOneLength = strOne.Length;
+        for (int i = 0; i < strOneLength; i++)
+        {
+            for (int j = 0; j < strs.Length; j++)
             {
-                str = strs[i];
+                if (strOne[i] == strs[j][i])
+                {
+                    count++;
+                    if (i * j == count) return strOne;
+                }
+                else
+                {
+                    if (i == 0) return "";
+                    else return strOne.Substring(0, i);
+
+                }
+                if (strOneLength == 1 && count == strOneLength) return strOne;
             }
         }
         return "";

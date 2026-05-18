@@ -9,7 +9,9 @@ public class Program
         //var c = int.Parse(Console.ReadLine());
         //var a = int.Parse(Console.ReadLine());
         LeetCode leet = new LeetCode();
-        Console.WriteLine(leet.ScoreOfString("hello"));
+
+        string[] strs = ["flower", "flower", "flower", "flower"];
+        Console.WriteLine(leet.LongestCommonPrefix(strs));
     }
     
 }
